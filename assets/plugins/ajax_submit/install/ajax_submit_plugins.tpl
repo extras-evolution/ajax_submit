@@ -5,7 +5,7 @@
  * Ajax sending of any form
  *
  * @category    plugin
- * @version     1.0
+ * @version     1.1
  * @license     http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @package     modx
  * @author      Andchir
@@ -30,7 +30,7 @@ if ($e->name == 'OnLoadWebDocument' || $e->name == 'OnLoadWebPageCache'){
     if(isset($_POST[$post_signal])){
         
         class exDocumentParser extends DocumentParser {
-          function sendRedirect() {
+          function sendRedirect($url, $count_attempts = 0, $type = '', $responseCode = '') {
             return true;
           }
           function innerHTML($node){
